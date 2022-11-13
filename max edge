@@ -1,0 +1,94 @@
+#include<bits//stdc++.h>
+#include <iostream>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int w;
+        int n;
+        cin>>n;
+        int arr[n];
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        int x,y;
+        if(n%2){
+            x=n/2;
+            y=n/2;
+        }
+        else {
+            x=n/2;
+            y=n/2;
+            x--;
+        }
+        int flag=0;
+        while(x>=0&&y<n){
+            if(arr[x]==arr[y])
+            x--;
+            y++;
+            }
+        else{
+            flag=1;
+            break;
+        } 
+        }
+        if(!flag)
+        cout<<0<<endl;
+        else {
+            temp=0;
+            int c=x;
+            int d=y;
+            while(x>=0&&y<n){
+                if(arr[x]>arr[y]){
+                    temp=1;
+                    break;
+                }
+                else {
+                    x--;
+                    y++;
+                    
+                }
+            }
+            if(temp){
+                cout<<-1<<endl;
+            }
+            else {
+                x=c;
+                y=d;
+                temp=0;
+                while(x>=0&&y<n-1){
+                    if(arr[y]-arr[x]>arr[y+1]-arr[x-1]){
+                        temp=1;
+                        break;
+                        
+                    }
+                    else {
+                        x--;
+                        y++;
+                    }
+                    if(temp)
+                        cout<<-1<<endl;
+                        else {
+                            x=c;
+                            y=d;
+                            temp=0;
+                            int w=arr[y++]-arr[x--];
+                            while(x>=0&&y<n){
+                                temp=1;
+                                break;
+                            }
+                            else {
+                                w=arr[y++]-arr[x--];
+                            }
+                        }
+                        if(temp)
+                        cout<<-1<<endl;
+                        else 
+                        cout<<w<<endl;
+                    }
+                }
+            }
+        }
+        
+    
